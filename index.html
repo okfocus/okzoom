@@ -1,0 +1,285 @@
+<!doctype html>
+<html>
+<head>
+  <title>OKZoom</title>
+  <meta charset='utf-8'>
+  <meta property="og:title" content="OKZoom" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://okfoc.us/okzoom/" />
+  <meta property="og:image" content="http://okfoc.us/assets/images/okshadow.png" />
+  <meta property="og:site_name" content="OKFocus" />
+  <meta property="fb:admins" content="34601449,13005337,100001923956223" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.js"></script>
+  <script src='src/okzoom.js'></script>
+  <script>
+    $(function(){
+      $("#logo").okzoom({
+        backgroundRepeat: "repeat"
+      });
+      $('#fra').okzoom({
+        width: 200,
+        height: 200
+      });
+    });
+  </script>
+  <style type="text/css">
+    body {
+      margin: 20px;
+      background: url('img/photocopy.png');
+      background-attachment:fixed;
+      background-position:top center;
+      font-family: sans-serif;
+      font-size: 15px;
+      line-height: 22px;
+      color: #333;
+    }
+    #container {
+      width: 600px;
+      margin: 0 auto;
+    }
+    #sidebar {
+      display: inline-block;
+      margin: 15px 10px 0 0; padding: 0;
+      vertical-align: top;
+      width: 120px;
+    }
+    #sidebar li {
+      list-style-type: none;
+    }
+    a {
+      color #00f;
+    }
+    table {
+      margin-top: -10px;
+    }
+    th {
+      text-align: left;
+      vertical-align: top;
+      font-weight: normal;
+      padding-right: 10px;
+      color: #000;
+      font-style: italic;
+    }
+    td {
+      vertical-align: top;
+      padding-left: 0;
+      padding-right: 10px;
+      color: #555;
+    }
+    td b {
+      color: #444;
+    }
+    #example1 {
+      display: inline-block;
+      height: 40px;
+      width: 40px;
+      background-color: #ddd;
+      margin: 0 20px;
+      z-index: -1;
+    }
+    #example2 {
+      display: inline-block;
+      width: 300px;
+    }
+    #example3 {
+      display: inline-block;
+    }
+    #example3 a:hover {
+      color: red !important;
+      text-shadow: none !important;
+    }
+    #ok {
+      display: inline-block;
+      height: 100px;
+      width: 100px;
+      background: #f4f0f8 url(social_media_icon_transparent.png);
+      background-position: center center;
+      background-size: cover;
+      border-radius:50px;
+    }
+    h1 {
+      font-size: 72px;
+      line-height: 12px;
+      margin-left: 20px;
+      font-weight: bold;
+      font-style: italic;
+      display: inline-block;
+      color: #444;
+    }
+    #content {
+      display: inline-block;
+      width: 600px;
+      vertical-align: top;
+    }
+    pre {
+      border: 1px solid #ddd;
+      background: rgb(238,238,238);
+      background: rgba(238,238,238,0.5);
+      font-size: 12px;
+      line-height: 15px;
+      padding: 5px 0 5px 10px;
+      width: 250px;
+      display: block;
+      margin: 20px auto;
+    }
+    pre#license {
+      width: auto;
+      margin: 0;
+      padding: 10px;
+    }
+    pre#methods {
+      width: auto;
+      padding: 10px;
+    }
+    pre a {
+      color: #00f;
+    }
+    p {
+      width: 100%;
+    }
+    header img {padding-bottom:15px;margin-top:10px;max-width:200px;height:33px;}
+    h2{text-transform:uppercase;font-size:15px;letter-spacing:6px;margin-bottom:20px;margin-top:-10px;font-style:italic;font-family: Comic Sans MS, cursive;font-weight:100;color:#333;-webkit-transform: rotate(-1deg);-moz-transform: rotate(-1deg); }
+  
+  </style>
+    <script type="text/javascript">
+      var _sf_startpt=(new Date()).getTime(); // chartbeat
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-25748597-1']);
+      _gaq.push(['_setDomainName', 'okfoc.us']);
+      _gaq.push(['_setAllowHash', false]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
+</head>
+<body>
+<div id="container">
+  <div id="header">
+    <a href="http://okfoc.us"><header>
+      <!-- img loaded with js -->
+    </header></a>
+    <hr>
+    <script>
+    (function() {
+      // cachebusting or whatever,,
+      var d = new Date(),
+      logo = document.createElement('img'),
+      header = document.getElementsByTagName('header')[0],
+      nav = document.getElementsByTagName('nav')[0];
+      logo.src = 'http://okfoc.us/assets/images/logo.gif?ok=' + d.getTime();
+      logo.id = "logo";
+      header.insertBefore(logo,nav);
+    })();
+    </script>
+</div>
+  <ul id="sidebar">
+  </ul>
+  <div id="content">
+    <h2>OKZoom by OKFocus</h2>
+    <p>
+      OKZoom is a JQuery plugin that produces a portable lorgnette of variable size and shape.
+    </p>
+
+    <h3>Usage</h3>
+    <p>
+      Bind OKZoom to one or many image elements:
+    </p>
+      <center>
+        <img id="fra" src="img/fra2.jpeg" height="200" style="box-shadow: 0 3px 5px #888;">
+      </center>
+    <pre>
+$('img').okzoom({
+  width: 200,
+  height: 200,
+  round: true,
+  background: "#fff",
+  backgroundRepeat: "repeat",
+  shadow: "0 0 5px #000",
+  border: "1px solid black"
+});</pre>
+    <h3>Usage</h3>
+    <table id="params" cellspacing="0">
+      <tr><th>width</th>       
+        <td>(in pixels)</td>
+        <td width='100'><b>150</b></td>
+      </tr>
+      <tr><th>height</th>
+        <td>(in pixels)</td>
+        <td width='100'><b>150</b></td>
+      </tr>
+      <tr><th>round</th>
+        <td>round if true, square if false</td>
+        <td width='100'><b>true</b></td>
+      </tr>
+      <tr><th>background</th>
+        <td>color for image off the edge of the lorgnette</td>
+        <td width='100'><b>#fff</b></td>
+      </tr>
+      <tr><th>backgroundRepeat</th>
+        <td>repeat the image within the lorgnette</td>
+        <td width='100'><b>no-repeat</b></td>
+      </tr>
+      <tr><th>border</th>      
+        <td>border around the lorgnette</td>
+        <td width='100'><b>0</b></td>
+      </tr>
+      <tr><th>shadow</th>
+        <td>box-shadow on the lorgnette</td>
+        <td width='100'><b>0 0 5px #000</b></td>
+      </tr>
+    </table>
+
+  <h3><a href="https://github.com/okfocus/okzoom/zipball/master">Download OKZoom</a> or <a href="http://github.com/okfocus/okzoom">Contribute on Github</a><br><br><a href="https://twitter.com/okfocus" class="twitter-follow-button">Follow @okfocus</a>
+	      <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>       
+	      <iframe src="//www.facebook.com/plugins/like.php?app_id=220585137996235&amp;href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FOKFocus%2F126395247420599&amp;send=false&amp;layout=button_count&amp;width=50&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=20" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:20px; clear:both;background:transparent;" ></iframe>
+     </h3>
+  <h3>License</h3>
+    <pre id="license">
+Copyright © 2011 OKFocus, <a href="http://okfoc.us">http://okfoc.us</a>
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+“Software”), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.<br>
+<img src="http://okfoc.us/assets/images/okshadow.png"style="padding:10px"><img src="http://okfoc.us/okhover/img/OSI-Approved-License.png"style="padding:10px;"></pre>
+  </pre>
+</div>
+    <script type="text/javascript">
+      var _sf_async_config={uid:25485,domain:"okfoc.us"};
+      (function(){
+          function loadChartbeat() {
+              window._sf_endpt=(new Date()).getTime();
+              var e = document.createElement('script');
+              e.setAttribute('language', 'javascript');
+              e.setAttribute('type', 'text/javascript');
+              e.setAttribute('src',
+      (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
+      "js/chartbeat.js");
+              document.body.appendChild(e);
+          }
+          var oldonload = window.onload;
+          window.onload = (typeof window.onload != 'function') ? loadChartbeat : function() { oldonload(); loadChartbeat(); };
+      })();
+    </script>
+</body>
+</html>
+
