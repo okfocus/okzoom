@@ -6,6 +6,7 @@ $(function($){
   lorgnette.style.pointerEvents = "none";
   lorgnette.style.display = "none";
   lorgnette.style.zIndex = 7879;
+  lorgnette.id = "ok-lorgnette";
   document.body.appendChild(lorgnette);
   
   $.okzoom = function(el, options){
@@ -13,7 +14,7 @@ $(function($){
     base.$el = $(el);
     base.el = el;        
     base.$el.data("okzoom", base);
-        
+    
     base.init = function(){            
       base.options = $.extend({}, $.okzoom.options, options);
       base.el.onmouseover = base.build;
@@ -70,6 +71,7 @@ $(function($){
     
     base.mouseout = function () {
       lorgnette.style.display = "none";
+      lorgnette.style.background = "none";
       document.body.style.cursor = "auto";
     };
     
