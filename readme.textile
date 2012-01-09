@@ -1,4 +1,4 @@
-h1. okshadow
+h1. okzoom
 
 h2. OKZoom by OKFocus
 
