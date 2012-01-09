@@ -205,15 +205,19 @@ $('img').okzoom({
     <h3>Usage</h3>
     <table id="params" cellspacing="0">
       <tr><th>width</th>       
-        <td>(in pixels)</td>
+        <td>of the lorgnette, in pixels</td>
         <td width='100'><b>150</b></td>
       </tr>
       <tr><th>height</th>
-        <td>(in pixels)</td>
-        <td width='100'><b>150</b></td>
+        <td>of the lorgnette, default is equal to width</td>
+        <td width='100'><b>null</b></td>
+      </tr>
+      <tr><th>scaleWidth</th>
+        <td>optionally resize the lorgnette image</td>
+        <td width='100'><b>null</b></td>
       </tr>
       <tr><th>round</th>
-        <td>round if true, square if false</td>
+        <td>circular lorgnette if true, rectangular if false</td>
         <td width='100'><b>true</b></td>
       </tr>
       <tr><th>background</th>
@@ -221,11 +225,11 @@ $('img').okzoom({
         <td width='100'><b>#fff</b></td>
       </tr>
       <tr><th>backgroundRepeat</th>
-        <td>repeat the image within the lorgnette</td>
+        <td>repeat the image within the lorgnette?</td>
         <td width='100'><b>no-repeat</b></td>
       </tr>
       <tr><th>border</th>      
-        <td>border around the lorgnette</td>
+        <td>apply a border around the lorgnette</td>
         <td width='100'><b>0</b></td>
       </tr>
       <tr><th>shadow</th>
