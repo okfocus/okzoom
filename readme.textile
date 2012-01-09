@@ -4,11 +4,13 @@ h2. OKZoom by OKFocus
 
 p. OKZoom is a JQuery plugin that produces a portable lorgnette of variable size and shape. See a demo "here":http://okfoc.us/okzoom.
 
-h2. Useage
+h2. Usage
 
-You can bind OKZoom to one or many image elements, producing a "zoom" effect like this:
+p. You can bind OKZoom to one or many image elements, producing a "zoom" effect like this:
 
 !https://github.com/okfocus/okzoom/raw/master/demos/img/okshadow-example.png!
+
+p. With code like this:
 
 <pre class='js'>
 <code>
