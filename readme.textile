@@ -1,0 +1,49 @@
+h1. okshadow
+
+h2. OKZoom by OKFocus
+
+p. OKZoom is a JQuery plugin that produces a portable lorgnette of variable size and shape. See a demo "here":http://okfoc.us/okzoom.
+
+h2. Useage
+
+You can bind OKZoom to one or many image elements, producing a "zoom" effect like this:
+
+!https://github.com/okfocus/okzoom/raw/master/demos/img/okshadow-example.png!
+
+<pre class='js'>
+<code>
+$('img').okzoom({
+  width: 200,
+  height: 200,
+  round: true,
+  background: "#fff",
+  backgroundRepeat: "repeat",
+  shadow: "0 0 5px #000",
+  border: "1px solid black"
+});
+</code>
+</pre>
+
+h3. Options
+
+|Usage|||
+|width|(in pixels}|150|
+|height|(in pixels}|150|
+|scaleWidth|optionally resize the lorgnette image|null|
+|round|round if true, square if false|true|
+|background|color for image off the edge of the lorgnette|#fff|
+|backgroundRepeat|repeat the image within the lorgnette|no-repeat|
+|border|border around the lorgnette|0|
+|shadow|box-shadow on the lorgnette|0 0 5px #000|
+
+h3. Run Tests
+
+p. OKFocus tests JavaScript with Jasmine. Run tests:
+
+<pre class='sh'>
+<code>
+$ bundle install
+$ jasmine init
+$ rake jasmine
+</code>
+</pre>
