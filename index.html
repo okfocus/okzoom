@@ -138,7 +138,25 @@
       width: 100%;
     }
     header img {padding-bottom:15px;margin-top:10px;max-width:200px;height:33px;}
-    h2{text-transform:uppercase;font-size:15px;letter-spacing:6px;margin-bottom:20px;margin-top:-10px;font-style:italic;font-family: Comic Sans MS, cursive;font-weight:100;color:#333;-webkit-transform: rotate(-1deg);-moz-transform: rotate(-1deg); }
+    h2 {
+      text-transform:uppercase;
+      font-size:15px;
+      letter-spacing:6px;
+      margin-bottom:20px;
+      margin-top:-10px;
+      font-style:italic;
+      font-family: Comic Sans MS, cursive;
+      font-weight:100;
+      color:#333;
+      -webkit-transform: rotate(-1deg);
+      -moz-transform: rotate(-1deg);
+      -ms-transform: rotate(-10deg);
+      -o-transform: rotate(-10deg);
+    }
+    .right-column {
+      width:100px;
+      font-weight:bold;
+    }
   
   </style>
     <script type="text/javascript">
@@ -206,31 +224,34 @@ $('img').okzoom({
     <table id="params" cellspacing="0">
       <tr><th>width</th>       
         <td>(in pixels)</td>
-        <td width='100'><b>150</b></td>
+        <td class='right-column'>150</td>
       </tr>
       <tr><th>height</th>
         <td>(in pixels)</td>
-        <td width='100'><b>150</b></td>
+        <td class='right-column'>150</td>
       </tr>
+      <tr><th>scaleWidth</th>
+        <td>optionally resize the lorgnette image</td>
+        <td class='right-column'>null</td>
       <tr><th>round</th>
         <td>round if true, square if false</td>
-        <td width='100'><b>true</b></td>
+        <td class='right-column'>true</td>
       </tr>
       <tr><th>background</th>
         <td>color for image off the edge of the lorgnette</td>
-        <td width='100'><b>#fff</b></td>
+        <td class='right-column'>#fff</td>
       </tr>
       <tr><th>backgroundRepeat</th>
         <td>repeat the image within the lorgnette</td>
-        <td width='100'><b>no-repeat</b></td>
+        <td class='right-column'>no-repeat</td>
       </tr>
       <tr><th>border</th>      
         <td>border around the lorgnette</td>
-        <td width='100'><b>0</b></td>
+        <td class='right-column'>0</td>
       </tr>
       <tr><th>shadow</th>
         <td>box-shadow on the lorgnette</td>
-        <td width='100'><b>0 0 5px #000</b></td>
+        <td class='right-column'>0 0 5px #000</td>
       </tr>
     </table>
 
@@ -240,7 +261,7 @@ $('img').okzoom({
      </h3>
   <h3>License</h3>
     <pre id="license">
-Copyright © 2011 OKFocus, <a href="http://okfoc.us">http://okfoc.us</a>
+Copyright © 2012 OKFocus, <a href="http://okfoc.us">http://okfoc.us</a>
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -282,4 +303,3 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.<br>
     </script>
 </body>
 </html>
-
