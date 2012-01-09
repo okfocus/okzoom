@@ -3,6 +3,8 @@
 <head>
   <title>OKZoom</title>
   <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta property="og:title" content="OKZoom" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="http://okfoc.us/okzoom/" />
@@ -10,7 +12,7 @@
   <meta property="og:site_name" content="OKFocus" />
   <meta property="fb:admins" content="34601449,13005337,100001923956223" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.js"></script>
-  <script src='src/okzoom.js'></script>
+  <script src='../src/okzoom.js'></script>
   <script>
     $(function(){
       $("#logo").okzoom({
@@ -138,7 +140,25 @@
       width: 100%;
     }
     header img {padding-bottom:15px;margin-top:10px;max-width:200px;height:33px;}
-    h2{text-transform:uppercase;font-size:15px;letter-spacing:6px;margin-bottom:20px;margin-top:-10px;font-style:italic;font-family: Comic Sans MS, cursive;font-weight:100;color:#333;-webkit-transform: rotate(-1deg);-moz-transform: rotate(-1deg); }
+    h2 {
+      text-transform:uppercase;
+      font-size:15px;
+      letter-spacing:6px;
+      margin-bottom:20px;
+      margin-top:-10px;
+      font-style:italic;
+      font-family: Comic Sans MS, cursive;
+      font-weight:100;
+      color:#333;
+      -webkit-transform: rotate(-1deg);
+      -moz-transform: rotate(-1deg);
+      -ms-transform: rotate(-10deg);
+      -o-transform: rotate(-10deg);
+    }
+    .right-column {
+      width:100px;
+      font-weight:bold;
+    }
   
   </style>
     <script type="text/javascript">
@@ -206,35 +226,35 @@ $('img').okzoom({
     <table id="params" cellspacing="0">
       <tr><th>width</th>       
         <td>of the lorgnette, in pixels</td>
-        <td width='100'><b>150</b></td>
+        <td class='right-column'>150</td>
       </tr>
       <tr><th>height</th>
-        <td>of the lorgnette, default is equal to width</td>
-        <td width='100'><b>null</b></td>
+        <td>of the lorgnette, in pixels</td>
+        <td class='right-column'>150</td>
       </tr>
       <tr><th>scaleWidth</th>
-        <td>optionally resize the lorgnette image</td>
-        <td width='100'><b>null</b></td>
+        <td>optionally force magnification of image</td>
+        <td class='right-column'>null</td>
       </tr>
       <tr><th>round</th>
-        <td>circular lorgnette if true, rectangular if false</td>
-        <td width='100'><b>true</b></td>
+        <td>round if true, square if false</td>
+        <td class='right-column'>true</td>
       </tr>
       <tr><th>background</th>
         <td>color for image off the edge of the lorgnette</td>
-        <td width='100'><b>#fff</b></td>
+        <td class='right-column'>#fff</td>
       </tr>
       <tr><th>backgroundRepeat</th>
-        <td>repeat the image within the lorgnette?</td>
-        <td width='100'><b>no-repeat</b></td>
+        <td>repeat the image within the lorgnette</td>
+        <td class='right-column'>no-repeat</td>
       </tr>
       <tr><th>border</th>      
-        <td>apply a border around the lorgnette</td>
-        <td width='100'><b>0</b></td>
+        <td>border around the lorgnette</td>
+        <td class='right-column'>0</td>
       </tr>
       <tr><th>shadow</th>
         <td>box-shadow on the lorgnette</td>
-        <td width='100'><b>0 0 5px #000</b></td>
+        <td class='right-column'>0 0 5px #000</td>
       </tr>
     </table>
 
@@ -244,7 +264,7 @@ $('img').okzoom({
      </h3>
   <h3>License</h3>
     <pre id="license">
-Copyright © 2011 OKFocus, <a href="http://okfoc.us">http://okfoc.us</a>
+Copyright © 2012 OKFocus, <a href="http://okfoc.us">http://okfoc.us</a>
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

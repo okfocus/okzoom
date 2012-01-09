@@ -1,3 +1,11 @@
+/*
+
+  OKShadow by OKFocus
+  http://okfoc.us // @okfocus
+  Copyright 2012 OKFocus
+  Licensed under the MIT License
+
+*/
 
 $(function($){
 
@@ -24,8 +32,7 @@ $(function($){
       lorgnette.style.width = lorgnette.style.height = base.options.size + "px";
       
       base.$el.load( base.build );
-      if (base.el.complete)
-        base.$el.trigger("load");
+      if (base.el.complete) base.$el.trigger("load");
     };
     
     base.build = function(){
