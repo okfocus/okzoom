@@ -2,7 +2,7 @@ h1. okshadow
 
 h2. OKZoom by OKFocus
 
-p. OKZoom is a JQuery plugin that produces a portable lorgnette of variable size and shape. See a demo "here":http://okfoc.us/okzoom.
+p. OKZoom is a JQuery plugin that produces a portable lorgnette of variable size and shape. All other jQuery 'zoom' plugins we have encountered implement a square magnifying area. Ours is a circle. You want a circle. See a demo "here":http://okfoc.us/okzoom.
 
 h2. Usage
 
