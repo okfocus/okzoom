@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <title>OKZoom Div Test</title>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="OKZoom" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://okfoc.us/okzoom/" />
+  <meta property="og:image" content="http://okfoc.us/assets/images/okzoom.png" />
+  <meta property="og:site_name" content="OKFocus" />
+  <meta property="fb:admins" content="34601449,13005337,100001923956223" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+  <script src='../src/okzoom-1.0.min.js'></script>
+  <script>
+    $(function(){
+      $('#test').okzoom({
+        scaleWidth: 300,
+        backgroundRepeat: "repeat",
+        width: 200,
+        height: 200
+      });
+    });
+  </script>
+  <style type="text/css">
+    * {
+      -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; -o-user-select: none; user-select: none;
+    }
+    html,body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    #test {
+      max-width: 300px;
+      max-height: 300px;
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+<table width="100%" height="100%">
+<tr>
+<td align="center" valign="middle">
+<div data-okimage="http://okfoc.us/assets/images/logo.gif" id="test">
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</div>
+</td>
+</tr>
+</table>
+</body>
+</html>

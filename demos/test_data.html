@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <title>OKZoom Data Test</title>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="OKZoom" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://okfoc.us/okzoom/" />
+  <meta property="og:image" content="http://okfoc.us/assets/images/okzoom.png" />
+  <meta property="og:site_name" content="OKFocus" />
+  <meta property="fb:admins" content="34601449,13005337,100001923956223" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+  <script src='../src/okzoom-1.0.min.js'></script>
+  <script>
+    $(function(){
+      $('#test').okzoom({
+        scaleWidth: 300,
+        backgroundRepeat: "repeat",
+        width: 200,
+        height: 200
+      });
+    });
+  </script>
+  <style type="text/css">
+    * {
+      -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; -o-user-select: none; user-select: none;
+    }
+    html,body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    #test {
+      max-width: 300px;
+      max-height: 300px;
+    }
+    #wrapper {
+      width: 300px;
+      height: 300px;
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<table width="100%" height="100%">
+<tr>
+<td align="center" valign="middle">
+<div id="wrapper">
+<img src="http://okfoc.us/assets/images/ok_icon.png" data-okimage="http://okfoc.us/assets/images/logo.gif" id="test">
+</div>
+</td>
+</tr>
+</table>
+</body>
+</html>
