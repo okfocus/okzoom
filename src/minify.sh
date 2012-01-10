@@ -9,4 +9,5 @@
 # http://code.google.com/closure/compiler/
 
 java -jar ~/bin/closure/compiler.jar --js=okzoom-1.0.js --js_output_file=okzoom.min.js
-cat LICENSE okzoom.min.js > okzoom-1.0.min.js
+cat PREAMBLE okzoom.min.js > okzoom-1.0.min.js
+
