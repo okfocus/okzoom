@@ -9,13 +9,13 @@
 
 $(function($){
 
-  var lorgnette = document.createElement("div");
-  lorgnette.style.position = "absolute";
-  lorgnette.style.backgroundRepeat = "no-repeat";
-  lorgnette.style.pointerEvents = "none";
-  lorgnette.style.display = "none";
-  lorgnette.style.zIndex = 7879;
-  document.body.appendChild(lorgnette);
+  var loupe = document.createElement("div");
+  loupe.style.position = "absolute";
+  loupe.style.backgroundRepeat = "no-repeat";
+  loupe.style.pointerEvents = "none";
+  loupe.style.display = "none";
+  loupe.style.zIndex = 7879;
+  document.body.appendChild(loupe);
   
   $.okzoom = function(el, options){
     var base = this;       
@@ -29,7 +29,7 @@ $(function($){
       base.el.onmousemove = base.mousemove;
       base.el.onmouseout = base.mouseout;
       
-      lorgnette.style.width = lorgnette.style.height = base.options.size + "px";
+      loupe.style.width = loupe.style.height = base.options.size + "px";
       
       base.$el.load( base.build );
       if (base.el.complete) base.$el.trigger("load");
@@ -43,17 +43,17 @@ $(function($){
       base.naturalHeight = base.el.naturalHeight;
       base.width_ratio = base.naturalWidth / base.width;
       base.height_ratio = base.naturalHeight / base.height;
-      lorgnette.style.border = base.options.border;
-      lorgnette.style.background = base.options.background + " url(" + base.el.src + ")";
-      lorgnette.style.backgroundRepeat = base.options.backgroundRepeat;
+      loupe.style.border = base.options.border;
+      loupe.style.background = base.options.background + " url(" + base.el.src + ")";
+      loupe.style.backgroundRepeat = base.options.backgroundRepeat;
       if (base.options.round) {
-        lorgnette.style.borderRadius = 
-        lorgnette.style.OBorderRadius = 
-        lorgnette.style.MozBorderRadius = 
-        lorgnette.style.WebkitBorderRadius = base.options.size + "px"
+        loupe.style.borderRadius = 
+        loupe.style.OBorderRadius = 
+        loupe.style.MozBorderRadius = 
+        loupe.style.WebkitBorderRadius = base.options.size + "px"
       }
       
-      lorgnette.style.boxShadow = base.options.shadow;
+      loupe.style.boxShadow = base.options.shadow;
 
     };
     
@@ -63,14 +63,14 @@ $(function($){
       var scale_top  = -1 * Math.floor( (e.pageY - base.offset.top) * base.height_ratio - shim );
 
       document.body.style.cursor = "none";
-      lorgnette.style.display = "block";
-      lorgnette.style.top = e.pageY - shim + "px";
-      lorgnette.style.left = e.pageX - shim + "px";
-      lorgnette.style.backgroundPosition = scale_left + "px " + scale_top + "px";
+      loupe.style.display = "block";
+      loupe.style.top = e.pageY - shim + "px";
+      loupe.style.left = e.pageX - shim + "px";
+      loupe.style.backgroundPosition = scale_left + "px " + scale_top + "px";
     };
     
     base.mouseout = function () {
-      lorgnette.style.display = "none";
+      loupe.style.display = "none";
       document.body.style.cursor = "auto";
     };
     

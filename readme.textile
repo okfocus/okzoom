@@ -2,7 +2,7 @@ h1. okzoom
 
 h2. OKZoom by OKFocus
 
-p. OKZoom is a jQuery plugin that produces a portable lorgnette of variable size and shape. All other jQuery 'zoom' plugins we have encountered implement a square magnifying area. Ours is a circle. You want a circle. See a demo "here":http://okfoc.us/okzoom.
+p. OKZoom is a jQuery plugin that produces a portable loupe of variable size and shape. All other jQuery 'zoom' plugins we have encountered implement a square magnifying area. Ours is a circle. You want a circle. See a demo "here":http://okfoc.us/okzoom.
 
 h2. Usage
 
@@ -31,16 +31,16 @@ h3. Options
 |Usage|||
 |width|(in pixels}|150|
 |height|(in pixels}|150|
-|scaleWidth|optionally resize the lorgnette image|null|
-|round|round lorgnette if true, square if false|true|
-|background|color for image off the edge of the lorgnette|#fff|
-|backgroundRepeat|repeat the image within the lorgnette|no-repeat|
-|border|border around the lorgnette|0|
-|shadow|box-shadow on the lorgnette|0 0 5px #000|
+|scaleWidth|optionally resize the loupe image|null|
+|round|round loupe if true, square if false|true|
+|background|color for image off the edge of the loupe|#fff|
+|backgroundRepeat|repeat the image within the loupe|no-repeat|
+|border|border around the loupe|0|
+|shadow|box-shadow on the loupe|0 0 5px #000|
 
 h3. Data Attribute
 
-Typically, we use this plugin on an image that has been sized down in HTML, and the lorgnette displays the image at its normal size.  If you like, you can add an HTML5 data attribute **data-okimage** to your image to substitute alternative content inside the lorgnette.
+Typically, we use this plugin on an image that has been sized down in HTML, and the loupe displays the image at its normal size.  If you like, you can add an HTML5 data attribute **data-okimage** to your image to substitute alternative content inside the loupe.
 
 h3. Run Tests
 

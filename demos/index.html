@@ -192,7 +192,7 @@
   <div id="content">
     <h2>OKZoom by OKFocus</h2>
     <p>
-      OKZoom is a JQuery plugin that produces a portable lorgnette of variable size and shape.
+      OKZoom is a JQuery plugin that produces a portable loupe of variable size and shape.
       All other jQuery 'zoom' plugins we have encountered implement a square magnifying area.
       Ours is a circle. You want a circle.
     </p>
@@ -200,7 +200,7 @@
     <h3>Usage</h3>
     <p>
       Bind OKZoom to one or many image elements.  The easiest way is to have a large image
-      that is sized down using HTML or CSS: the lorgnette will show the full-size image on hover.
+      that is sized down using HTML or CSS: the loupe will show the full-size image on hover.
     </p>
 
     <center>
@@ -221,17 +221,17 @@ $('img').okzoom({
     <p>
       You can also apply OKZoom to every image on a page by binding to <tt>$('img')</tt>.
       If the source of the bound image changes -- say on an image gallery with several thumbnails
-      under a main image -- the lorgnette will automatically update.
+      under a main image -- the loupe will automatically update.
     </p>
     
     <p id="data-example" data-okimage="img/okzoom.png">
       Alternatively, add a HTML5 data attribute <tt>data-okimage</tt> to your image tag containing
-      the url to the image you want to see inside the lorgnette.  Using this technique,
+      the url to the image you want to see inside the loupe.  Using this technique,
       OKZoom may be applied to any element -- hover over this paragraph to see an example.
     </p>
     
     <p>
-      Finally, the id of the lorgnette itself is <tt>ok-lorgnette</tt>.
+      Finally, the id of the loupe itself is <tt>ok-loupe</tt>.
     </p>
 
     <h3>Smoke Tests</h3>
@@ -251,11 +251,11 @@ $('img').okzoom({
     <h3>Options</h3>
     <table id="params" cellspacing="0">
       <tr><th>width</th>       
-        <td>of the lorgnette, in pixels</td>
+        <td>of the loupe, in pixels</td>
         <td class='right-column'>150</td>
       </tr>
       <tr><th>height</th>
-        <td>of the lorgnette, in pixels</td>
+        <td>of the loupe, in pixels</td>
         <td class='right-column'>150</td>
       </tr>
       <tr><th>scaleWidth</th>
@@ -263,23 +263,23 @@ $('img').okzoom({
         <td class='right-column'>null</td>
       </tr>
       <tr><th>round</th>
-        <td>round lorgnette if true, square if false</td>
+        <td>round loupe if true, square if false</td>
         <td class='right-column'>true</td>
       </tr>
       <tr><th>background</th>
-        <td>color for image off the edge of the lorgnette</td>
+        <td>color for image off the edge of the loupe</td>
         <td class='right-column'>#fff</td>
       </tr>
       <tr><th>backgroundRepeat</th>
-        <td>repeat the image within the lorgnette</td>
+        <td>repeat the image within the loupe</td>
         <td class='right-column'>no-repeat</td>
       </tr>
       <tr><th>border</th>      
-        <td>border around the lorgnette</td>
+        <td>border around the loupe</td>
         <td class='right-column'>0</td>
       </tr>
       <tr><th>shadow</th>
-        <td>box-shadow on the lorgnette</td>
+        <td>box-shadow on the loupe</td>
         <td class='right-column'>0 0 5px #000</td>
       </tr>
     </table>

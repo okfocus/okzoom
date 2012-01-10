@@ -9,14 +9,14 @@
 
 $(function($){
     
-  var lorgnette = document.createElement("div");
-  lorgnette.id = "ok-lorgnette";
-  lorgnette.style.position = "absolute";
-  lorgnette.style.backgroundRepeat = "no-repeat";
-  lorgnette.style.pointerEvents = "none";
-  lorgnette.style.display = "none";
-  lorgnette.style.zIndex = 7879;
-  document.body.appendChild(lorgnette);
+  var loupe = document.createElement("div");
+  loupe.id = "ok-loupe";
+  loupe.style.position = "absolute";
+  loupe.style.backgroundRepeat = "no-repeat";
+  loupe.style.pointerEvents = "none";
+  loupe.style.display = "none";
+  loupe.style.zIndex = 7879;
+  document.body.appendChild(loupe);
 
   $.okzoom = function(el, options){
     var base = this;       
@@ -66,18 +66,18 @@ $(function($){
       base.widthRatio = base.naturalWidth / base.width;
       base.heightRatio = base.naturalHeight / base.height;
 
-      lorgnette.style.width = base.options.width + "px";
-      lorgnette.style.height = base.options.height + "px";
-      lorgnette.style.border = base.options.border;
-      lorgnette.style.background = base.options.background + " url(" + base.img.src + ")";
-      lorgnette.style.backgroundRepeat = base.options.backgroundRepeat;
-      lorgnette.style.backgroundSize = base.options.scaleWidth ? base.naturalWidth + "px " + base.naturalHeight + "px" : "auto";
-      lorgnette.style.borderRadius = 
-      lorgnette.style.OBorderRadius = 
-      lorgnette.style.MozBorderRadius = 
-      lorgnette.style.WebkitBorderRadius = base.options.round ? base.options.width + "px" : 0;
+      loupe.style.width = base.options.width + "px";
+      loupe.style.height = base.options.height + "px";
+      loupe.style.border = base.options.border;
+      loupe.style.background = base.options.background + " url(" + base.img.src + ")";
+      loupe.style.backgroundRepeat = base.options.backgroundRepeat;
+      loupe.style.backgroundSize = base.options.scaleWidth ? base.naturalWidth + "px " + base.naturalHeight + "px" : "auto";
+      loupe.style.borderRadius = 
+      loupe.style.OBorderRadius = 
+      loupe.style.MozBorderRadius = 
+      loupe.style.WebkitBorderRadius = base.options.round ? base.options.width + "px" : 0;
       
-      lorgnette.style.boxShadow = base.options.shadow;
+      loupe.style.boxShadow = base.options.shadow;
     };
     
     base.mousemove = function (e) {
@@ -87,15 +87,15 @@ $(function($){
       var scaleTop  = -1 * Math.floor( (e.pageY - base.offset.top) * base.heightRatio - shimTop );
 
       document.body.style.cursor = "none";
-      lorgnette.style.display = "block";
-      lorgnette.style.left = e.pageX - shimLeft + "px";
-      lorgnette.style.top = e.pageY - shimTop + "px";
-      lorgnette.style.backgroundPosition = scaleLeft + "px " + scaleTop + "px";
+      loupe.style.display = "block";
+      loupe.style.left = e.pageX - shimLeft + "px";
+      loupe.style.top = e.pageY - shimTop + "px";
+      loupe.style.backgroundPosition = scaleLeft + "px " + scaleTop + "px";
     };
     
     base.mouseout = function () {
-      lorgnette.style.display = "none";
-      lorgnette.style.background = "none";
+      loupe.style.display = "none";
+      loupe.style.background = "none";
       document.body.style.cursor = "auto";
     };
     
