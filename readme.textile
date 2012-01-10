@@ -40,10 +40,7 @@ h3. Options
 
 h3. Data Attribute
 
-Typically, we use this plugin on an image that has been sized down in HTML, and the
-lorgnette displays the image at its normal size.  If you like, you can add an HTML5
-data attribute **data-okimage** to your image to substitute alternative content
-inside the lorgnette.
+Typically, we use this plugin on an image that has been sized down in HTML, and the lorgnette displays the image at its normal size.  If you like, you can add an HTML5 data attribute **data-okimage** to your image to substitute alternative content inside the lorgnette.
 
 h3. Run Tests
 
