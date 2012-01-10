@@ -32,11 +32,18 @@ h3. Options
 |width|(in pixels}|150|
 |height|(in pixels}|150|
 |scaleWidth|optionally resize the lorgnette image|null|
-|round|round if true, square if false|true|
+|round|round lorgnette if true, square if false|true|
 |background|color for image off the edge of the lorgnette|#fff|
 |backgroundRepeat|repeat the image within the lorgnette|no-repeat|
 |border|border around the lorgnette|0|
 |shadow|box-shadow on the lorgnette|0 0 5px #000|
+
+h3. Data Attribute
+
+Typically, we use this plugin on an image that has been sized down in HTML, and the
+lorgnette displays the image at its normal size.  If you like, you can add an HTML5
+data attribute **data-okimage** to your image to substitute alternative content
+inside the lorgnette.
 
 h3. Run Tests
 

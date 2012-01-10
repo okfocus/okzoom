@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <title>OKZoom Vanilla Test</title>
+  <title>OKZoom Multi-Image Test</title>
   <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,8 @@
       $('img').okzoom({
         scaleWidth: 600,
         width: 200,
-        height: 200
+        height: 200,
+        backgroundRepeat: "repeat"
       });
     });
   </script>
@@ -31,6 +32,9 @@
       height: 100%;
       margin: 0;
       padding: 0;
+      background: url('img/photocopy.png');
+      background-attachment:fixed;
+      background-position:top center;
     }
     img {
       width: 100px;
