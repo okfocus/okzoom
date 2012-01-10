@@ -18,9 +18,15 @@
       $("#logo").okzoom({
         backgroundRepeat: "repeat"
       });
-      $('#fra').okzoom({
+      $('#example').okzoom({
         width: 200,
         height: 200
+      });
+      $('#data-test').okzoom({
+        scaleWidth: 50,
+        width: 100,
+        height: 100,
+        backgroundRepeat: "repeat"
       });
     });
   </script>
@@ -71,24 +77,9 @@
     td b {
       color: #444;
     }
-    #example1 {
-      display: inline-block;
-      height: 40px;
-      width: 40px;
-      background-color: #ddd;
-      margin: 0 20px;
-      z-index: -1;
-    }
-    #example2 {
-      display: inline-block;
-      width: 300px;
-    }
-    #example3 {
-      display: inline-block;
-    }
-    #example3 a:hover {
-      color: red !important;
-      text-shadow: none !important;
+    #example {
+      box-shadow: 0 3px 5px #888;
+      height: 200px;
     }
     #ok {
       display: inline-block;
@@ -207,11 +198,15 @@
 
     <h3>Usage</h3>
     <p>
-      Bind OKZoom to one or many image elements:
+      Bind OKZoom to one or many image elements.  The easiest way is to have a large image
+      that is sized down using HTML or CSS.  You can also apply OKZoom to every image on a page
+      by binding to <tt>$('img')</tt> as below.
     </p>
-      <center>
-        <img id="fra" src="img/fra2.jpeg" height="200" style="box-shadow: 0 3px 5px #888;">
-      </center>
+
+    <center>
+      <img id="example" src="img/fra2.jpeg">
+    </center>
+
     <pre>
 $('img').okzoom({
   width: 200,
@@ -222,7 +217,15 @@ $('img').okzoom({
   shadow: "0 0 5px #000",
   border: "1px solid black"
 });</pre>
-    <h3>Usage</h3>
+
+    <h3>Data Attribute</h3>
+    <p id="data-test" data-okimage="http://okfoc.us/assets/images/ok_icon.png">
+      Alternatively, add a HTML5 data attribute <tt>okimage</tt> to your image tag containing
+      the url to the image you want to see inside the lorgnette.  Using this technique,
+      OKZoom may be applied to any element -- hover over this paragraph to see an example.
+    </p>
+
+    <h3>Options</h3>
     <table id="params" cellspacing="0">
       <tr><th>width</th>       
         <td>of the lorgnette, in pixels</td>

@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <title>OKZoom Div Test</title>
+  <title>OKZoom Vanilla Test</title>
   <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,9 +15,8 @@
   <script src='../src/okzoom-1.0.min.js'></script>
   <script>
     $(function(){
-      $('#test').okzoom({
-        scaleWidth: 300,
-        backgroundRepeat: "repeat",
+      $('img').okzoom({
+        scaleWidth: 600,
         width: 200,
         height: 200
       });
@@ -33,10 +32,8 @@
       margin: 0;
       padding: 0;
     }
-    #test {
-      max-width: 300px;
-      text-align: justify;
-      padding: 5px;
+    img {
+      width: 100px;
       box-shadow: 0 3px 5px #888;
     }
   </style>
@@ -45,11 +42,13 @@
 <table width="100%" height="100%">
 <tr>
 <td align="center" valign="middle">
-<div data-okimage="http://okfoc.us/assets/images/logo.gif" id="test">
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-</div>
+<img src="http://okfoc.us/assets/images/ok_icon.png"><br><br>
+<img src="http://okfoc.us/assets/images/logo.gif">
 </td>
 </tr>
 </table>
 </body>
 </html>
+
+  
+  
