@@ -1,14 +1,23 @@
-$(function($){
+/*
 
+  OKShadow by OKFocus
+  http://okfoc.us // @okfocus
+  Copyright 2012 OKFocus
+  Licensed under the MIT License
+
+*/
+
+$(function($){
+    
   var lorgnette = document.createElement("div");
+  lorgnette.id = "ok-lorgnette";
   lorgnette.style.position = "absolute";
   lorgnette.style.backgroundRepeat = "no-repeat";
   lorgnette.style.pointerEvents = "none";
   lorgnette.style.display = "none";
   lorgnette.style.zIndex = 7879;
-  lorgnette.id = "ok-lorgnette";
   document.body.appendChild(lorgnette);
-  
+
   $.okzoom = function(el, options){
     var base = this;       
     base.$el = $(el);
@@ -23,29 +32,44 @@ $(function($){
       
       base.options.height = base.options.height || base.options.width;
       
+      var image_from_data = base.$el.data("okimage");
+      base.has_data_image = typeof image_from_data !== "undefined";
+      
+      if (base.has_data_image) {
+        base.img = new Image ();
+        base.img.src = image_from_data;
+      }
+      
       // base.$el.load( base.build );
       // if (base.el.complete)
       //  base.$el.trigger("load");
     };
     
     base.build = function(){
+    
+      if (! base.has_data_image) {
+        base.img = base.el;
+      }
+      
       base.offset = base.$el.offset();
       base.width = base.$el.width();
       base.height = base.$el.height();
+      
       if (base.options.scaleWidth) {
         base.naturalWidth = base.options.scaleWidth;
-        base.naturalHeight = Math.round( base.el.naturalHeight * base.options.scaleWidth / base.el.naturalWidth );
+        base.naturalHeight = Math.round( base.img.naturalHeight * base.options.scaleWidth / base.img.naturalWidth );
       } else {
-        base.naturalWidth = base.el.naturalWidth;
-        base.naturalHeight = base.el.naturalHeight;
+        base.naturalWidth = base.img.naturalWidth;
+        base.naturalHeight = base.img.naturalHeight;
       }
+      
       base.widthRatio = base.naturalWidth / base.width;
       base.heightRatio = base.naturalHeight / base.height;
 
       lorgnette.style.width = base.options.width + "px";
       lorgnette.style.height = base.options.height + "px";
       lorgnette.style.border = base.options.border;
-      lorgnette.style.background = base.options.background + " url(" + base.el.src + ")";
+      lorgnette.style.background = base.options.background + " url(" + base.img.src + ")";
       lorgnette.style.backgroundRepeat = base.options.backgroundRepeat;
       lorgnette.style.backgroundSize = base.options.scaleWidth ? base.naturalWidth + "px " + base.naturalHeight + "px" : "auto";
       lorgnette.style.borderRadius = 
