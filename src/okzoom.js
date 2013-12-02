@@ -50,12 +50,20 @@ $(function($){
 
       base.options.height = base.options.height || base.options.width;
 
-      var image_from_data = base.$el.data("okimage");
-      base.has_data_image = typeof image_from_data !== "undefined";
+      base.image_from_data = base.$el.data("okimage");
+      base.has_data_image = typeof base.image_from_data !== "undefined";
 
       if (base.has_data_image) {
         base.img = new Image ();
-        base.img.src = image_from_data;
+        base.img.src = base.image_from_data;
+      }
+
+      base.msie = -1; // Return value assumes failure.
+      if (navigator.appName == 'Microsoft Internet Explorer') {
+        var ua = navigator.userAgent;
+        var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+        if (re.exec(ua) != null)
+          base.msie = parseFloat(RegExp.$1);
       }
     });
   };
@@ -75,8 +83,16 @@ $(function($){
     if (! base.has_data_image) {
       base.img = base.el;
     }
+    else if (base.image_from_data != base.$el.attr('data-okimage')) {
+      // data() returns cached values, whereas attr() returns from the dom.
+      base.image_from_data = base.$el.attr('data-okimage');
 
-    if ($.browser.msie && $.browser.version < 9.0 && !base.img.naturalized) {
+      $(base.img).remove();
+      base.img = new Image();
+      base.img.src = base.image_from_data;
+    }
+
+    if (base.msie > -1 && base.msie < 9.0 && !base.img.naturalized) {
       var naturalize = function(img) {
         img = img || this;
         var io = new Image();
