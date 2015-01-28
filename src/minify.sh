@@ -5,9 +5,10 @@
 #  Copyright 2012 OKFocus
 #  Licensed under the MIT License
 #
-# We minify using the Closure Compiler.
-# http://code.google.com/closure/compiler/
+# Minify using uglify
 
-java -jar ~/bin/closure/compiler.jar --js=okzoom.js --js_output_file=okzoom.min.js
-cat PREAMBLE okzoom.js > okzoom.min.js
+uglify -s okzoom.js -o okzoom.ugly.js
+cat PREAMBLE okzoom.ugly.js > okzoom.min.js
+rm okzoom.ugly.js
+
 
