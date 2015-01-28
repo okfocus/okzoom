@@ -1,0 +1,38 @@
+{
+  "name": "okzoom",
+  "version": "1.1.0",
+  "title": "okzoom",
+  "description": "A jQuery Plugin that produces a portable loupe of variable size and shape.",
+  "homepage": "https://github.com/okfocus/okzoom",
+  "docs": "https://github.com/okfocus/okzoom",
+  "demo": "http://okfoc.us/okzoom",
+  "licenses": [{
+    "type": "MIT",
+    "url": "https://raw.github.com/okfocus/okzoom/master/license"
+  }],
+  "keywords": ["zoom", "magnifying", "magnifying glass", "circle", "image", "loupe", "okfocus"],
+  "author": {
+    "name": "OKFocus",
+    "url": "https://github.com/okfocus"
+  },
+  "maintainers": [{
+    "name": "Jonathan Vingiano",
+    "url": "https://github.com/jgv"
+  },
+  {
+    "name": "Jules LaPlace",
+    "url": "https://github.com/julescarbon"
+  },
+  {
+    "name": "Ryder Ripps",
+    "url": "https://github.com/ryderr"
+  }],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/okfocus/okzoom.git"
+  },
+  "bugs": "https://github.com/okfocus/okzoom/issues",
+  "dependencies": {
+    "jquery": ">=1.4"
+  }
+}

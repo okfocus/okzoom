@@ -11,8 +11,24 @@
   <meta property="og:image" content="http://okfoc.us/assets/images/okzoom.png" />
   <meta property="og:site_name" content="OKFocus" />
   <meta property="fb:admins" content="34601449,13005337,100001923956223" />
+  <!--[if lt IE 9]>
+  <script>
+    document.createElement('header');
+    document.createElement('nav');
+    document.createElement('section');
+    document.createElement('article');
+    document.createElement('aside');
+    document.createElement('footer');
+    document.createElement('hgroup');
+  </script>
+  <style type="text/css">
+  header ,nav ,section ,article ,aside ,footer ,hgroup {
+  display: block;
+  }
+  </style>
+  <![endif]-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
-  <script src='../src/okzoom-1.0.js'></script>
+  <script src='../src/okzoom.js'></script>
   <script>
     $(function(){
       $("#logo").okzoom({
@@ -20,7 +36,9 @@
       });
       $('#example').okzoom({
         width: 200,
-        height: 200
+        height: 200,
+        border: "1px solid black",
+        shadow: "0 0 5px #000"
       });
       $('#data-example').okzoom({
         width: 100,
@@ -149,7 +167,10 @@
       width:100px;
       font-weight:bold;
     }
-  
+    a img {
+      border:none;
+    }
+
   </style>
     <script type="text/javascript">
       var _sf_startpt=(new Date()).getTime(); // chartbeat
@@ -179,11 +200,10 @@
       // cachebusting or whatever,,
       var d = new Date(),
       logo = document.createElement('img'),
-      header = document.getElementsByTagName('header')[0],
-      nav = document.getElementsByTagName('nav')[0];
+      header = document.getElementsByTagName('header')[0];
       logo.src = 'http://okfoc.us/assets/images/logo.gif?ok=' + d.getTime();
       logo.id = "logo";
-      header.insertBefore(logo,nav);
+      header.insertBefore(logo,null);
     })();
     </script>
 </div>
@@ -223,23 +243,23 @@ $('img').okzoom({
       If the source of the bound image changes -- say on an image gallery with several thumbnails
       under a main image -- the loupe will automatically update.
     </p>
-    
+
     <p id="data-example" data-okimage="img/okzoom.png">
       Alternatively, add a HTML5 data attribute <tt>data-okimage</tt> to your image tag containing
       the url to the image you want to see inside the loupe.  Using this technique,
       OKZoom may be applied to any element -- hover over this paragraph to see an example.
     </p>
-    
+
     <p>
       Finally, the id of the loupe itself is <tt>ok-loupe</tt>.
     </p>
 
     <h3>Smoke Tests</h3>
-    
+
     <p>
       Use these basic tests to get started with OKZoom as quickly as possible.
     </p>
-    
+
     <ul>
       <li><a href="test_vanilla.html">Basic Test</a></li>
       <li><a href="test_change.html">Change Image Test</a></li>
@@ -250,7 +270,7 @@ $('img').okzoom({
 
     <h3>Options</h3>
     <table id="params" cellspacing="0">
-      <tr><th>width</th>       
+      <tr><th>width</th>
         <td>of the loupe, in pixels</td>
         <td class='right-column'>150</td>
       </tr>
@@ -274,7 +294,7 @@ $('img').okzoom({
         <td>repeat the image within the loupe</td>
         <td class='right-column'>no-repeat</td>
       </tr>
-      <tr><th>border</th>      
+      <tr><th>border</th>
         <td>border around the loupe</td>
         <td class='right-column'>0</td>
       </tr>
@@ -283,9 +303,9 @@ $('img').okzoom({
         <td class='right-column'>0 0 5px #000</td>
       </tr>
     </table>
-    
+
   <h3><a href="https://github.com/okfocus/okzoom/zipball/master">Download OKZoom</a> or <a href="http://github.com/okfocus/okzoom">Contribute on Github</a><br><br><a href="https://twitter.com/okfocus" class="twitter-follow-button">Follow @okfocus</a>
-	      <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>       
+	      <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
 	      <iframe src="//www.facebook.com/plugins/like.php?app_id=220585137996235&amp;href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FOKFocus%2F126395247420599&amp;send=false&amp;layout=button_count&amp;width=50&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=20" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:20px; clear:both;background:transparent;" ></iframe>
      </h3>
   <h3>License</h3>
