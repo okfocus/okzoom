@@ -21,14 +21,15 @@ $('img').okzoom({
   background: "#fff",
   backgroundRepeat: "repeat",
   shadow: "0 0 5px #000",
-  border: "1px solid black"
+  border: "1px solid black",
+  click: false
 });
 </code>
 </pre>
 
 h3. Options
 
-|Usage|||
+|*Usage*|*Description*|*Default Value*|
 |width|(in pixels}|150|
 |height|(in pixels}|150|
 |scaleWidth|optionally resize the loupe image|null|
@@ -37,6 +38,7 @@ h3. Options
 |backgroundRepeat|repeat the image within the loupe|no-repeat|
 |border|border around the loupe|0|
 |shadow|box-shadow on the loupe|0 0 5px #000|
+|click|Require user to click rather than just hover to zoom|false|
 
 h3. Data Attribute
 

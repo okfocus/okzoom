@@ -33,20 +33,34 @@ $(function($){
       $('body').append(loupe);
       base.loupe = loupe;
 
+      var clicked = false;
+      base.clicked = clicked;
+
       base.$el.data("okzoom", base);
 
       base.options = options;
-      $(base.el).bind('mouseover', (function(b) {
-        return function(e) { $.fn.okzoom.build(b, e); };
-      }(base)));
 
-      base.$listener.bind('mousemove', (function(b) {
+      if(base.options.click) {
+        $(base.el).bind('click', function(e) {
+	  return function(e) { $.fn.okzoom.click(base, e); };
+	}());
+
+	$(base.$listener).click(function(event) {
+	    return $.fn.okzoom.click(base, event);
+	});
+      } else {
+	$(base.el).bind('mouseover', function(b) {
+	  return function(e) { $.fn.okzoom.build(b, e); };
+	}(base));
+      }
+
+      base.$listener.bind('mousemove', function(b) {
         return function(e) { $.fn.okzoom.mousemove(b, e); };
-      }(base)));
+      }(base));
 
-      base.$listener.bind('mouseout', (function(b) {
+      base.$listener.bind('mouseout', function(b) {
         return function(e) { $.fn.okzoom.mouseout(b, e); };
-      }(base)));
+      }(base));
 
       base.options.height = base.options.height || base.options.width;
 
@@ -76,7 +90,8 @@ $(function($){
     "background": "#fff",
     "backgroundRepeat": "no-repeat",
     "shadow": "0 0 5px #000",
-    "border": 0
+    "border": 0,
+    "click": false  
   };
 
   $.fn.okzoom.build = function(base, e){
@@ -147,6 +162,15 @@ $(function($){
     $.fn.okzoom.mousemove(base, e);
   };
 
+    $.fn.okzoom.click = function (base, e) {
+	if(base.clicked) {
+	    return $.fn.okzoom.mouseout(base, e);
+	} else {
+	    base.clicked = true;
+	    return $.fn.okzoom.build(base, e);
+	}
+    };
+
   $.fn.okzoom.mousemove = function (base, e) {
     if (!base.initialized) return;
     var shimLeft = base.options.width / 2;
@@ -169,7 +193,8 @@ $(function($){
     base.loupe.style.display = "none";
     base.loupe.style.background = "none";
     base.listener.style.display = "none";
-    document.body.style.cursor = "auto";
+    document.body.style.cursor = "auto"
+    base.clicked = false;;
   };
 
 });
