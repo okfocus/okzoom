@@ -45,11 +45,8 @@ $(function($){
 	  return function(e) { $.fn.okzoom.click(base, e); };
 	}());
 
-	$(document).click(function(event) {
-	  var c = $(event.target)[0].className;
-	  if(c == "ok-listener"){
+	$(base.$listener).click(function(event) {
 	    return $.fn.okzoom.click(base, event);
-	  }
 	});
       } else {
 	$(base.el).bind('mouseover', function(b) {
