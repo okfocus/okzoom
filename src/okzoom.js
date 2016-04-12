@@ -16,21 +16,35 @@ $(function($){
       base.$el = $(el);
       base.el = el;
 
-      base.listener = document.createElement('div');
-      base.$listener = $(base.listener).addClass('ok-listener').css({
-        position: 'absolute',
-        zIndex: 10000
-      });
-      $('body').append(base.$listener);
+      //Find a pre-existing element for 'ok-listener'
+      base.listener = document.getElementById('ok-listener_' + this.id);
+      base.$listener = $(base.listener);
 
-      var loupe = document.createElement("div");
-      loupe.id = "ok-loupe";
-      loupe.style.position = "absolute";
-      loupe.style.backgroundRepeat = "no-repeat";
-      loupe.style.pointerEvents = "none";
-      loupe.style.display = "none";
-      loupe.style.zIndex = 7879;
-      $('body').append(loupe);
+      if (!base.listener) {
+        base.listener = document.createElement('div');
+        base.listener.id = "ok-listener_" + this.id;
+        base.$listener = $(base.listener).addClass('ok-listener').css({
+          position: 'absolute',
+          zIndex: 10000
+        });
+        $('body').append(base.$listener);
+        okListener = base.listener;
+      }
+
+      //Find a pre-existing element for 'ok-loupe'
+      var loupe = document.getElementById('ok-loupe_' + this.id);
+
+      if (!loupe) {
+        loupe = document.createElement("div");
+        loupe.id = "ok-loupe_" + this.id;
+        loupe.style.position = "absolute";
+        loupe.style.backgroundRepeat = "no-repeat";
+        loupe.style.pointerEvents = "none";
+        loupe.style.display = "none";
+        loupe.style.zIndex = 7879;
+        $('body').append(loupe);
+        okLoupe = loupe;
+      }
       base.loupe = loupe;
 
       base.$el.data("okzoom", base);
