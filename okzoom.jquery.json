@@ -1,6 +1,6 @@
 {
   "name": "okzoom",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "okzoom",
   "description": "A jQuery Plugin that produces a portable loupe of variable size and shape.",
   "homepage": "https://github.com/okfocus/okzoom",
@@ -16,10 +16,6 @@
     "url": "https://github.com/okfocus"
   },
   "maintainers": [{
-    "name": "Jonathan Vingiano",
-    "url": "https://github.com/jgv"
-  },
-  {
     "name": "Jules LaPlace",
     "url": "https://github.com/julescarbon"
   },

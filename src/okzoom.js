@@ -1,11 +1,18 @@
 /*
- * OKZoom by OKFocus v1.1
+ * OKZoom by OKFocus v1.2
  * http://okfoc.us // @okfocus
  * Copyright 2012 OKFocus
  * Licensed under the MIT License
 **/
 
 $(function($){
+
+  var is_iphone = (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))
+  var is_ipad = (navigator.userAgent.match(/iPad/i))
+  var is_android = (navigator.userAgent.match(/Android/i))
+  var is_mobile = is_iphone || is_ipad || is_android
+  var is_desktop = ! is_mobile;
+
   $.fn.okzoom = function(options){
     options = $.extend({}, $.fn.okzoom.defaults, options);
 
@@ -36,17 +43,45 @@ $(function($){
       base.$el.data("okzoom", base);
 
       base.options = options;
-      $(base.el).bind('mouseover', (function(b) {
-        return function(e) { $.fn.okzoom.build(b, e); };
-      }(base)));
+      
+      if (is_mobile) {
+        base.$el.bind('touchstart', (function(b) {
+          return function(e) {
+            console.log("TS", e)
+            e.preventDefault()
+            $.fn.okzoom.build(b, e.originalEvent.touches[0]);
+          };
+        }(base)));
 
-      base.$listener.bind('mousemove', (function(b) {
-        return function(e) { $.fn.okzoom.mousemove(b, e); };
-      }(base)));
+        base.$el.bind('touchmove', (function(b) {
+          return function(e) {
+            console.log("TM")
+            e.preventDefault()
+            $.fn.okzoom.mousemove(b, e.originalEvent.touches[0]);
+          };
+        }(base)));
 
-      base.$listener.bind('mouseout', (function(b) {
-        return function(e) { $.fn.okzoom.mouseout(b, e); };
-      }(base)));
+        base.$el.bind('touchend', (function(b) {
+          return function(e) {
+            console.log("TE")
+            e.preventDefault()
+            $.fn.okzoom.mouseout(b, e);
+          };
+        }(base)));
+      }
+      else {
+        $(base.el).bind('mouseover', (function(b) {
+          return function(e) { $.fn.okzoom.build(b, e); };
+        }(base)));
+
+        base.$listener.bind('mousemove', (function(b) {
+          return function(e) { $.fn.okzoom.mousemove(b, e); };
+        }(base)));
+
+        base.$listener.bind('mouseout', (function(b) {
+          return function(e) { $.fn.okzoom.mouseout(b, e); };
+        }(base)));
+      }
 
       base.options.height = base.options.height || base.options.width;
 
@@ -76,6 +111,7 @@ $(function($){
     "background": "#fff",
     "backgroundRepeat": "no-repeat",
     "shadow": "0 0 5px #000",
+    "inset": 0,
     "border": 0
   };
 
@@ -138,10 +174,8 @@ $(function($){
     base.loupe.style.backgroundSize = base.options.scaleWidth ?
         base.naturalWidth + "px " + base.naturalHeight + "px" : "auto";
     base.loupe.style.borderRadius =
-    base.loupe.style.OBorderRadius =
     base.loupe.style.MozBorderRadius =
-    base.loupe.style.WebkitBorderRadius = base.options.round ? base.options.width + "px" : 0;
-
+    base.loupe.style.WebkitBorderRadius = base.options.round ? "50%" : 0;
     base.loupe.style.boxShadow = base.options.shadow;
     base.initialized = true;
     $.fn.okzoom.mousemove(base, e);
@@ -150,7 +184,7 @@ $(function($){
   $.fn.okzoom.mousemove = function (base, e) {
     if (!base.initialized) return;
     var shimLeft = base.options.width / 2;
-    var shimTop = base.options.height / 2;
+    var shimTop = is_mobile ? base.options.height : base.options.height / 2;
     var pageX = typeof e.pageX !== 'undefined' ? e.pageX :
         (e.clientX + document.documentElement.scrollLeft);
     var pageY = typeof e.pageY !== 'undefined' ? e.pageY :
