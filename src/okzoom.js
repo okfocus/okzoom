@@ -7,11 +7,42 @@
 
 $(function($){
 
+  // Identify browser based on useragent string
+  var browser = (function( ua ) {
+    ua = ua.toLowerCase();
+    var match = /(chrome)[ \/]([\w.]+)/.exec( ua ) ||
+      /(webkit)[ \/]([\w.]+)/.exec( ua ) ||
+      /(opera)(?:.*version|)[ \/]([\w.]+)/.exec( ua ) ||
+      /(msie) ([\w.]+)/.exec( ua ) ||
+      ua.indexOf("compatible") < 0 && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec( ua ) ||
+      [];
+    var matched = {
+      browser: match[ 1 ] || "",
+      version: match[ 2 ] || "0"
+    };
+    browser = {};
+    if ( matched.browser ) {
+        browser[ matched.browser ] = true;
+        browser.version = matched.version;
+    }
+    // Chrome is Webkit, but Webkit is also Safari.
+    if ( browser.chrome ) {
+      browser.webkit = true;
+    } else if ( browser.webkit ) {
+      browser.safari = true;
+    }
+    if (window.$) $.browser = browser;
+    return browser;
+  })( navigator.userAgent );
+
   var is_iphone = (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))
   var is_ipad = (navigator.userAgent.match(/iPad/i))
   var is_android = (navigator.userAgent.match(/Android/i))
   var is_mobile = is_iphone || is_ipad || is_android
   var is_desktop = ! is_mobile;
+  var transitionProp = browser.safari ? "WebkitTransition" : "transition";
+  var transformProp = browser.safari ? "WebkitTransform" : "transform";
+  var longTransformProp = browser.safari ? "-webkit-transform" : "transform";
 
   $.fn.okzoom = function(options){
     options = $.extend({}, $.fn.okzoom.defaults, options);
@@ -35,7 +66,7 @@ $(function($){
       loupe.style.position = "absolute";
       loupe.style.backgroundRepeat = "no-repeat";
       loupe.style.pointerEvents = "none";
-      loupe.style.display = "none";
+      loupe.style.opacity = 0;
       loupe.style.zIndex = 7879;
       $('body').append(loupe);
       base.loupe = loupe;
@@ -87,6 +118,7 @@ $(function($){
 
       base.image_from_data = base.$el.data("okimage");
       base.has_data_image = typeof base.image_from_data !== "undefined";
+      base.timeout = null
 
       if (base.has_data_image) {
         base.img = new Image ();
@@ -112,7 +144,10 @@ $(function($){
     "backgroundRepeat": "no-repeat",
     "shadow": "0 0 5px #000",
     "inset": 0,
-    "border": 0
+    "border": 0,
+    "transform": is_mobile ? ["scale(0)","scale(1)"] : null,
+    "transitionTime": 200,
+    "transitionTimingFunction": "cubic-bezier(0,0,0,1)",
   };
 
   $.fn.okzoom.build = function(base, e){
@@ -177,6 +212,11 @@ $(function($){
     base.loupe.style.MozBorderRadius =
     base.loupe.style.WebkitBorderRadius = base.options.round ? "50%" : 0;
     base.loupe.style.boxShadow = base.options.shadow;
+    base.loupe.style.opacity = 0;
+    if (base.options.transform) {
+      base.loupe.style[transformProp] = base.options.transform[0]
+      base.loupe.style[transitionProp] = longTransformProp + " " + base.options.transitionTime
+    }
     base.initialized = true;
     $.fn.okzoom.mousemove(base, e);
   };
@@ -184,7 +224,8 @@ $(function($){
   $.fn.okzoom.mousemove = function (base, e) {
     if (!base.initialized) return;
     var shimLeft = base.options.width / 2;
-    var shimTop = is_mobile ? base.options.height : base.options.height / 2;
+    var shimTop = base.options.height / 2;
+    var offsetTop = is_mobile ? base.options.height : shimTop
     var pageX = typeof e.pageX !== 'undefined' ? e.pageX :
         (e.clientX + document.documentElement.scrollLeft);
     var pageY = typeof e.pageY !== 'undefined' ? e.pageY :
@@ -193,14 +234,28 @@ $(function($){
     var scaleTop  = -1 * Math.floor( (pageY - base.offset.top) * base.heightRatio - shimTop );
 
     document.body.style.cursor = "none";
-    base.loupe.style.display = "block";
+    // base.loupe.style.display = "block";
     base.loupe.style.left = pageX - shimLeft + "px";
-    base.loupe.style.top = pageY - shimTop + "px";
+    base.loupe.style.top = pageY - offsetTop + "px";
     base.loupe.style.backgroundPosition = scaleLeft + "px " + scaleTop + "px";
+    base.loupe.style.opacity = 1;
+    if (base.options.transform) {
+      base.loupe.style[transformProp] = base.options.transform[1]
+      base.loupe.style[transitionProp] = longTransformProp + " " + base.options.transitionTime + "ms " + base.options.transitionTimingFunction
+    }
   };
 
   $.fn.okzoom.mouseout = function (base, e) {
-    base.loupe.style.display = "none";
+    // base.loupe.style.display = "none";
+    if (base.options.transform) {
+      base.loupe.style[transformProp] = base.options.transform[0]
+      setTimeout(function(){
+        base.loupe.style.opacity = 0;
+      }, base.options.transitionTime);
+    }
+    else {
+      base.loupe.style.opacity = 0;
+    }
     base.loupe.style.background = "none";
     base.listener.style.display = "none";
     document.body.style.cursor = "auto";
