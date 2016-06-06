@@ -1,6 +1,6 @@
 {
   "name": "OKZoom",
-  "version": "1.2",
+  "version": "1.2.1",
   "main": "./src/okzoom.js",
   "dependencies": {
     "jquery": ">1.7.2"

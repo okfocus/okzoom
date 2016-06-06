@@ -43,6 +43,7 @@ $(function($){
   var transitionProp = browser.safari ? "WebkitTransition" : "transition";
   var transformProp = browser.safari ? "WebkitTransform" : "transform";
   var longTransformProp = browser.safari ? "-webkit-transform" : "transform";
+  var transformOriginProp = browser.safari ? "WebkitTransformOrigin" : "transformOrigin";
 
   $.fn.okzoom = function(options){
     options = $.extend({}, $.fn.okzoom.defaults, options);
@@ -146,6 +147,7 @@ $(function($){
     "inset": 0,
     "border": 0,
     "transform": is_mobile ? ["scale(0)","scale(1)"] : null,
+    "transformOrigin": is_mobile ? "50% 100%" : "50% 50%",
     "transitionTime": 200,
     "transitionTimingFunction": "cubic-bezier(0,0,0,1)",
   };
@@ -215,6 +217,7 @@ $(function($){
     base.loupe.style.opacity = 0;
     if (base.options.transform) {
       base.loupe.style[transformProp] = base.options.transform[0]
+      base.loupe.style[transformOriginProp] = base.options.transformOrigin
       base.loupe.style[transitionProp] = longTransformProp + " " + base.options.transitionTime
     }
     base.initialized = true;
@@ -241,15 +244,17 @@ $(function($){
     base.loupe.style.opacity = 1;
     if (base.options.transform) {
       base.loupe.style[transformProp] = base.options.transform[1]
+      base.loupe.style[transformProp] = base.options.transform[1]
       base.loupe.style[transitionProp] = longTransformProp + " " + base.options.transitionTime + "ms " + base.options.transitionTimingFunction
     }
+    clearTimeout(base.timeout)
   };
 
   $.fn.okzoom.mouseout = function (base, e) {
     // base.loupe.style.display = "none";
     if (base.options.transform) {
       base.loupe.style[transformProp] = base.options.transform[0]
-      setTimeout(function(){
+      base.timeout = setTimeout(function(){
         base.loupe.style.opacity = 0;
       }, base.options.transitionTime);
     }
